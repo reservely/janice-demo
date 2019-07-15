@@ -1,0 +1,22 @@
+{
+  "name": "janice-demo",
+  "version": "1.0.0",
+  "description": "proxy server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reservly/janice-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reservly/janice-demo/issues"
+  },
+  "homepage": "https://github.com/reservly/janice-demo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
