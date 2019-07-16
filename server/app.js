@@ -22,6 +22,11 @@ app.all("/:restaurant_id/reservations", function(req, res) {
     apiProxy.web(req, res, {target: serverTwo});
 });
 
+app.all("/:restaurant_id/reservations/*", function(req, res) {
+    console.log('redirecting to Server2');
+    apiProxy.web(req, res, {target: serverTwo});
+});
+
 app.all("/:restaurant_id/menus", function(req, res) {
     console.log('redirecting to Server3');
     apiProxy.web(req, res, {target: serverThree});
