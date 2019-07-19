@@ -7,10 +7,10 @@ const app = express();
 const apiProxy = httpProxy.createProxyServer();
 app.use(express.static(path.join(__dirname, '/../public/')));
 
- const serverOne = 'http://localhost:3001',
-       serverTwo = 'http://localhost:3002',
-       serverThree = 'http://localhost:3003',
-       serverFour = 'http://localhost:3004';
+ const serverOne = 'http://ec2-52-53-209-75.us-west-1.compute.amazonaws.com/',
+       serverTwo = 'http://ec2-54-200-32-135.us-west-2.compute.amazonaws.com/',
+       serverThree = 'http://ec2-18-219-221-244.us-east-2.compute.amazonaws.com/',
+       serverFour = 'http://ec2-18-223-115-5.us-east-2.compute.amazonaws.com/';
 
 app.all("/:restaurant_id/images", function(req, res) {
     console.log('redirecting to Server1');
