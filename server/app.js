@@ -6,35 +6,41 @@ const httpProxy = require('http-proxy');
 const app = express();
 const apiProxy = httpProxy.createProxyServer();
 app.use(express.static(path.join(__dirname, '/../public/')));
+app.use('/:restaurantID', express.static(path.join(__dirname, '/../public')));
 
- const serverOne = 'http://ec2-52-53-209-75.us-west-1.compute.amazonaws.com/',
-       serverTwo = 'http://ec2-54-200-32-135.us-west-2.compute.amazonaws.com/',
-       serverThree = 'http://ec2-18-219-221-244.us-east-2.compute.amazonaws.com/',
-       serverFour = 'http://ec2-18-223-115-5.us-east-2.compute.amazonaws.com/';
+ const photos = 'http://13.57.252.210',
+       reservations = 'http://54.200.32.135',
+       menus = 'http://18.219.221.244',
+       reviews = 'http://18.223.115.5';
 
 app.all("/:restaurant_id/images", function(req, res) {
     console.log('redirecting to Server1');
-    apiProxy.web(req, res, {target: serverOne});
+    apiProxy.web(req, res, {target: photos});
 });
 
 app.all("/:restaurant_id/reservations", function(req, res) {
     console.log('redirecting to Server2');
-    apiProxy.web(req, res, {target: serverTwo});
+    apiProxy.web(req, res, {target: reservations});
 });
 
 app.all("/:restaurant_id/reservations/*", function(req, res) {
     console.log('redirecting to Server2');
-    apiProxy.web(req, res, {target: serverTwo});
+    apiProxy.web(req, res, {target: reservations});
 });
 
 app.all("/:restaurant_id/menus", function(req, res) {
     console.log('redirecting to Server3');
-    apiProxy.web(req, res, {target: serverThree});
+    apiProxy.web(req, res, {target: menus});
 });
 
-app.all("/:restaurantID/reviews", function(req, res) {
+app.all("/:restaurantID/reviews/", function(req, res) {
     console.log('redirecting to Server4');
-    apiProxy.web(req, res, {target: serverFour});
+    apiProxy.web(req, res, {target: reviews});
+});
+
+app.all("/:restaurantID/reviews/*", function(req, res) {
+    console.log('redirecting to Server4');
+    apiProxy.web(req, res, {target: reviews});
 });
 
 module.exports = app;

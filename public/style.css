@@ -1,0 +1,58 @@
+.maincol {
+  /* grid-column: 1 / span 1;
+  grid-row: 1;  */
+  /* width: 640px; */
+  /* margin-left: 103.5px;
+  margin-right: 16px; */
+}
+.sideBarContainer {
+  /* display: grid;
+  grid-column: 2 / span 1;
+  grid-row: 1;  */
+  width: 320px;
+  flex-direction: column; 
+  float: right;
+  justify-content: space-between; 
+  margin-left: 0px;
+  margin-right: 135px; 
+}
+
+
+.sideInfo {
+  /* margin-left: 10px;
+  margin-top: 0px; */
+
+}
+
+.container {
+  /* display: grid; */
+  /* grid-template-columns: 3fr 1fr; */
+  
+}
+
+#reservations {
+  margin-left: -100px;
+}
+
+.img {
+  margin-left: -88px;
+}
+
+#photo-gallery {
+  /* display: block;
+  margin-left: 30px; */
+  /* width: 640px; */
+  margin-left: 100px;
+  margin-right: 16px;
+}
+
+#reviews {
+  width: 640px;
+  margin-left: 215px;
+}
+
+#menus {
+  width: 640px;
+  margin-left: 215px;
+}
+
